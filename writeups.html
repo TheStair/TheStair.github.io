@@ -1,0 +1,11 @@
+---
+layout: default
+title: Writeups
+---
+
+<h1>My Writeups</h1>
+<ul>
+  {% for writeup in site.writeups %}
+    <li><a href="{{ writeup.url | relative_url }}">{{ writeup.title }}</a> - {{ writeup.date | date: "%B %d, %Y" }}</li>
+  {% endfor %}
+</ul>
