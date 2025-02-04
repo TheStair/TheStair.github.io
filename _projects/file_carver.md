@@ -25,4 +25,4 @@ After these files are carved, they are hashed to verify file integrity and saved
 </p>
 
 
-Usage: "Python3 FileRecovery.py \<input-file\>
+**Usage:** "Python3 FileRecovery.py \<input-file\>
