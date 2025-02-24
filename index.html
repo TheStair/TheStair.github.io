@@ -4,8 +4,40 @@ title: Home
 ---
 
 <h1>Thanks for Visiting!</h1>
-<ul>
-  <li><a href="/projects">Projects</a></li>
-  <li><a href="/writeups">Writeups</a></li>
-  <li><a href="/about">About</a></li>
-</ul>
+<div class="hacker-nav-container">
+  <style>
+    /* These styles will only affect elements within .hacker-nav-container */
+    .hacker-nav {
+      list-style: none;
+      padding: 0;
+    }
+
+    .hacker-nav li {
+      display: inline-block;
+      margin-right: 15px;
+    }
+
+    .hacker-nav li a {
+      text-decoration: none;
+      font-family: "Courier New", Courier, monospace;
+      color: #0f0; /* Neon green text */
+      background-color: #000; /* Black background */
+      padding: 10px 20px;
+      border: 2px solid #0f0;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .hacker-nav li a:hover {
+      color: #000;
+      background-color: #0f0;
+    }
+  </style>
+
+  <h1>Thanks for Visiting!</h1>
+  <ul class="hacker-nav">
+    <li><a href="/projects">Projects</a></li>
+    <li><a href="/writeups">Writeups</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</div>
