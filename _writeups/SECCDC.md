@@ -1,5 +1,5 @@
 ---
-layout: writeup
+layout: default
 title: "Securing the Domain: Lessons from a Cyber Competition"
 date: 2025-02-08
 categories: [Security, Cyber Competition, AD Security]
