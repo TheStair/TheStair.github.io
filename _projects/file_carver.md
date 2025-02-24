@@ -1,28 +1,38 @@
 ---
 layout: default
-title:  "FileRecovery"
+title:  "Recovering Hidden Files from Binary Data with Python"
 date:   2024-11-01
-categories: School Projects
+categories: [Python, File Recovery, Digital Forensics, School Projects]
+tags: [Python, FileRecovery, FileCarving]
 ---
 
+# Recovering Hidden Files from Binary Data with Python
+
+In this post, I’ll walk you through a Python script designed to extract embedded files from binary blobs by leveraging file signatures. Whether you’re dealing with disk images or raw binary dumps, this tool is handy for carving out specific file types. Currently, it supports PDF, GIF, JPG, PNG, and AVI formats.
+
+## How It Works
+
+### 1. Defining File Signatures
+
+The process starts by defining a dictionary of file types paired with their unique start-of-file (SOF) and end-of-file (EOF) markers. These markers are essential to accurately pinpoint where each file begins and ends within the binary data.
+
+### 2. Iterating Through the Binary Blob
+
+The script then iterates through the input file, searching for these starting byte sequences. Once it detects a file header, the script “carves” the file—using the EOF marker or a known file size—to extract it from the blob.
+
+### 3. Scanning for Additional Headers
+
+After carving out the first instance, the script continues scanning the rest of the binary for any remaining headers of the same type. This process repeats for every file type defined in the dictionary until the entire binary blob has been thoroughly examined.
+
+### 4. Verifying and Saving the Files
+
+Once all potential files have been extracted, each one is hashed to verify its integrity. Finally, the recovered files are saved to a designated output directory, ready for use.
+
+## How to Use the Script
+
+Simply run the following command in your terminal to start the recovery process:
+
+```bash
+python3 FileRecovery.py <input-file>
+```
 [Github Repo](https://github.com/TheStair/FileRecovery)
-
-# FileRecovery Python Script
-<p style="text-indent: 2em;">
-This python script uses file signatures to extract files from binary blobs. Currently, this project can carve files of the following types pdf, gif, jpg, png, and avi.  
-</p>
-
-<p style="text-indent: 2em;">
-First, I defined a dictionary of the required filetypes containing their start of file signatures and end of file signatures. Then the script iterates through this dictionary searching the input file for the starting byte literal strings. If a starting sequence is found, the file is carved, either using the EOF marker or known filesize.  
-</p>
-
-<p style="text-indent: 2em;">
-After the file is carved, the script searches the rest of the file for remaining file headers of the specific type. After the entire disk image/binary blob has been searched, the script repeats with the next filetype.  
-</p>
-
-<p style="text-indent: 2em;">
-After these files are carved, they are hashed to verify file integrity and saved in an output directory.  
-</p>
-
-
-**Usage:** "Python3 FileRecovery.py \<input-file\>
